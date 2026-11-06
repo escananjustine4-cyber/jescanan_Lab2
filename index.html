@@ -4,81 +4,180 @@ cat << 'EOF' > /var/www/html/jescanan/index.html
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Justine Escañan | Developer Portfolio</title>
-    <!-- Bootstrap 5 CSS CDN -->
+    <title>Justine Escañan | Developer Hub</title>
+    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 50%, #052c65 100%);
+            color: white;
+            padding: 100px 0 80px;
+            border-radius: 0 0 50px 50px;
+        }
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            border-radius: 15px;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+        }
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+        .badge-custom {
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 8px;
+        }
+    </style>
 </head>
-<body class="bg-light">
+<body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm py-3">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#"><i class="fa-solid me-2"></i>Justine Escañan</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <a class="navbar-brand fw-bold text-white fs-4" href="#">
+                <i class="fa-solid fa-code text-primary me-2"></i>Justine Escañan
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="#">fhgfgsgyuf</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <ul class="navbar-nav ms-auto fw-medium">
+                    <li class="nav-item"><a class="nav-link active px-3" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#server">Server Status</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="bg-primary text-white text-center py-5">
-        <div class="container py-4">
-            <h1 class="display-4 fw-bold">Welcome to My Server Hub</h1>
-            <p class="lead mt-3 mb-4">Web Applications, Full-Stack Software Systems, & CI/CD Pipelines</p>
-            <a href="#projects" class="btn btn-light btn-lg text-primary fw-semibold me-2">View Projects</a>
-            <a href="#contact" class="btn btn-outline-light btn-lg">Contact Me</a>
+    <section class="hero-section text-center shadow">
+        <div class="container">
+            <span class="badge bg-light text-primary px-3 py-2 rounded-pill mb-3 fw-semibold">Local Ubuntu Web Server</span>
+            <h1 class="display-3 fw-bold mb-3">Syntax & System Hub</h1>
+            <p class="lead col-lg-8 mx-auto opacity-90 mb-4">
+                Full-Stack Software Development, Real-Time Systems, at Automated Self-Hosted CI/CD Pipelines.
+            </p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="#projects" class="btn btn-light btn-lg px-4 fw-bold text-primary shadow-sm">Explore Projects</a>
+                <a href="#server" class="btn btn-outline-light btn-lg px-4">Server Info</a>
+            </div>
         </div>
     </section>
 
-    <!-- Features / Projects Section -->
-    <section id="projects" class="py-5">
+    <!-- Projects Section -->
+    <section id="projects" class="py-5 mt-4">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="fw-bold">Active Projects</h2>
-                <p class="text-muted">Mga kasalukuyang system at deployment setups na tumatakbo sa server.</p>
+                <h2 class="fw-bold fs-1">Active Web Applications</h2>
+                <p class="text-muted">Mga system at service na kasalukuyang nakahost at tumatakbo sa server.</p>
             </div>
             <div class="row g-4">
+                
+                <!-- Card 1 -->
                 <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-body p-4">
-                            <div class="text-primary fs-1 mb-3"><i class="fa-solid fa-square-parking"></i></div>
-                            <h5 class="card-title fw-bold">Parking Management</h5>
-                            <p class="card-text text-muted">Real-time slot tracking, transaction logging, and revenue report system.</p>
-                            <span class="badge bg-primary">FastAPI</span>
-                            <span class="badge bg-secondary">React</span>
+                    <div class="card h-100 shadow-sm p-3 project-card">
+                        <div class="card-body">
+                            <div class="icon-box bg-primary text-white">
+                                <i class="fa-solid fa-square-parking"></i>
+                            </div>
+                            <h4 class="card-title fw-bold">Parking System</h4>
+                            <p class="card-text text-muted">Web-based Parking Management System na may real-time slot grids at report generation.</p>
+                            <div class="mt-3">
+                                <span class="badge bg-primary-subtle text-primary badge-custom me-1">FastAPI</span>
+                                <span class="badge bg-dark-subtle text-dark badge-custom me-1">React</span>
+                                <span class="badge bg-success-subtle text-success badge-custom">MySQL</span>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Card 2 -->
                 <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-body p-4">
-                            <div class="text-success fs-1 mb-3"><i class="fa-solid fa-car"></i></div>
-                            <h5 class="card-title fw-bold">Car Rental System</h5>
-                            <p class="card-text text-muted">Multi-role authentication workflow, PDO transactions, and client portal.</p>
-                            <span class="badge bg-success">PHP</span>
-                            <span class="badge bg-dark">Tailwind</span>
+                    <div class="card h-100 shadow-sm p-3 project-card">
+                        <div class="card-body">
+                            <div class="icon-box bg-success text-white">
+                                <i class="fa-solid fa-car-side"></i>
+                            </div>
+                            <h4 class="card-title fw-bold">Car Rental System</h4>
+                            <p class="card-text text-muted">Multi-role authentication workflow na may PDO transactions at vehicle tracking logs.</p>
+                            <div class="mt-3">
+                                <span class="badge bg-success-subtle text-success badge-custom me-1">PHP OOP</span>
+                                <span class="badge bg-info-subtle text-info badge-custom me-1">Tailwind</span>
+                                <span class="badge bg-warning-subtle text-warning badge-custom">PDO</span>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Card 3 -->
                 <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm">
-                        <div class="card-body p-4">
-                            <div class="text-warning fs-1 mb-3"><i class="fa-solid fa-robot"></i></div>
-                            <h5 class="card-title fw-bold">CI/CD Action Runner</h5>
-                            <p class="card-text text-muted">Automated self-hosted deployment pipelines running locally per user account.</p>
-                            <span class="badge bg-warning text-dark">GitHub Actions</span>
-                            <span class="badge bg-info text-dark">Ubuntu</span>
+                    <div class="card h-100 shadow-sm p-3 project-card">
+                        <div class="card-body">
+                            <div class="icon-box bg-warning text-dark">
+                                <i class="fa-solid fa-screwdriver-wrench"></i>
+                            </div>
+                            <h4 class="card-title fw-bold">Engine Maintenance</h4>
+                            <p class="card-text text-muted">Syntax Engine Technologies maintenance logger at repair history tracker.</p>
+                            <div class="mt-3">
+                                <span class="badge bg-danger-subtle text-danger badge-custom me-1">Firebase</span>
+                                <span class="badge bg-primary-subtle text-primary badge-custom me-1">JavaScript</span>
+                                <span class="badge bg-dark-subtle text-dark badge-custom">Bootstrap 5</span>
+                            </div>
                         </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Server Info Section -->
+    <section id="server" class="py-5 bg-white border-top border-bottom">
+        <div class="container py-3">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-6">
+                    <h2 class="fw-bold mb-3">CI/CD & Server Environment</h2>
+                    <p class="text-muted">Nakahost sa isang dedicated Ubuntu Server environment na may naka-setup na GitHub Actions self-hosted runners kada user account para sa automated deployment pipelines.</p>
+                    <ul class="list-unstyled text-secondary">
+                        <li class="mb-2"><i class="fa-solid fa-circle-check text-success me-2"></i>Apache Web Server (Port 80)</li>
+                        <li class="mb-2"><i class="fa-solid fa-circle-check text-success me-2"></i>Isolated User Root Directory Linkings</li>
+                        <li class="mb-2"><i class="fa-solid fa-circle-check text-success me-2"></i>GitHub Actions Self-Hosted Runners</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <div class="p-4 bg-dark text-white rounded-3 shadow font-monospace">
+                        <div class="d-flex justify-content-between mb-3 border-bottom border-secondary pb-2">
+                            <span><i class="fa-solid fa-terminal me-2 text-warning"></i>Server Status</span>
+                            <span class="text-success">● Active</span>
+                        </div>
+                        <small class="text-light opacity-75">
+                            jescanan@bsc3rdyear:~$ systemctl status apache2<br>
+                            ● apache2.service - The Apache HTTP Server<br>
+                            &nbsp;&nbsp;&nbsp;Active: active (running)<br>
+                            &nbsp;&nbsp;&nbsp;IP Address: 192.168.1.19
+                        </small>
                     </div>
                 </div>
             </div>
@@ -86,14 +185,14 @@ cat << 'EOF' > /var/www/html/jescanan/index.html
     </section>
 
     <!-- Footer -->
-    <footer id="contact" class="bg-dark text-white text-center py-4 mt-5">
+    <footer id="contact" class="bg-dark text-white py-4 text-center">
         <div class="container">
-            <p class="mb-1">&copy; 2026 Justine Escañan. Hosted on Local Server (192.168.1.19).</p>
-            <small class="text-muted">Built with Bootstrap 5 & Hosted on Ubuntu Linux</small>
+            <p class="mb-1">&copy; 2026 Justine Escañan. All Rights Reserved.</p>
+            <small class="text-muted">Hosted on Local Ubuntu Server (192.168.1.19)</small>
         </div>
     </footer>
 
-    <!-- Bootstrap 5 JS Bundle CDN -->
+    <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
