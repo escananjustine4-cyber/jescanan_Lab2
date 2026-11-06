@@ -1,0 +1,27 @@
+name: Deploy to Local Server
+
+# Patatakbuhin ang workflow tuwing may push sa main branch
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    # Tiyaking 'self-hosted' ito para sa iyong sariling Ubuntu runner
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout Repository Code
+        uses: actions/checkout@v4
+
+      - name: Sync Files to Apache Web Directory
+        run: |
+          echo "Deploying project files to /var/www/html/jescanan..."
+          # Kopyahin ang mga bagong files patungo sa iyong apache folder
+          cp -r ./* /var/www/html/jescanan/
+          
+      - name: Verify Deployment Status
+        run: |
+          echo "Deployment completed successfully!"
+          ls -la /var/www/html/jescanan/
